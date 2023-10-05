@@ -362,74 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiBeneficiarioBeneficiario extends Schema.CollectionType {
-  collectionName: 'beneficiarios';
-  info: {
-    singularName: 'beneficiario';
-    pluralName: 'beneficiarios';
-    displayName: 'beneficiario';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    nombre: Attribute.String & Attribute.Required;
-    posts: Attribute.Relation<
-      'api::beneficiario.beneficiario',
-      'manyToMany',
-      'api::post.post'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::beneficiario.beneficiario',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::beneficiario.beneficiario',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPostPost extends Schema.CollectionType {
-  collectionName: 'posts';
-  info: {
-    singularName: 'post';
-    pluralName: 'posts';
-    displayName: 'post';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 4;
-      }>;
-    cover: Attribute.Media;
-    beneficiarios: Attribute.Relation<
-      'api::post.post',
-      'manyToMany',
-      'api::beneficiario.beneficiario'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -755,8 +687,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::beneficiario.beneficiario': ApiBeneficiarioBeneficiario;
-      'api::post.post': ApiPostPost;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
