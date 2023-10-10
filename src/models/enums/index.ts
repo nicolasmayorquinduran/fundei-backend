@@ -11,4 +11,6 @@ export enum customApis {
 
 export enum googleControllers {
   auth = "auth",
+  docs = "docs",
+  drive = "drive",
 }
