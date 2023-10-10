@@ -1,5 +1,5 @@
 {
-  "name": "fundei",
+  "name": "server",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -9,18 +9,17 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.14.0",
-    "@strapi/plugin-users-permissions": "4.14.0",
-    "@strapi/plugin-i18n": "4.14.0",
+    "@strapi/plugin-i18n": "4.14.3",
+    "@strapi/plugin-users-permissions": "4.14.3",
+    "@strapi/strapi": "4.14.3",
     "better-sqlite3": "8.6.0"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "b0afbfc6-10f7-49da-af97-bb068007d58c"
+    "uuid": "23f85be5-ec02-4c7d-8e37-441378be5a68"
   },
   "engines": {
     "node": ">=16.0.0 <=20.x.x",
