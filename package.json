@@ -15,7 +15,8 @@
     "@strapi/strapi": "4.14.3",
     "axios": "^1.5.1",
     "better-sqlite3": "8.6.0",
-    "googleapis": "^126.0.1"
+    "googleapis": "^126.0.1",
+    "mercadopago": "^2.0.1"
   },
   "author": {
     "name": "A Strapi developer"
@@ -27,5 +28,8 @@
     "node": ">=16.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/koa": "^2.13.9"
+  }
 }
