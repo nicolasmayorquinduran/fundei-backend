@@ -3,9 +3,9 @@
  */
 
 import { Context } from "koa";
-import { controllerFunction } from "../../../models/interfaces";
+import { controllerFunctionInterface } from "../../../models/interfaces";
 const axios = require("axios");
-import { customApis, googleControllers } from "../../../models/enums";
+import { customApisEnum, googleControllersEnum } from "../../../models/enums";
 
 const { google } = require("googleapis");
 const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URL } = process.env as Record<
@@ -30,7 +30,7 @@ const authorizationUrl = oauth2Client.generateAuthUrl({
 
 let credentials: string | null = null;
 
-const controllers: { [key: string]: controllerFunction<void> } = {
+const controllers: { [key: string]: controllerFunctionInterface<void> } = {
   authLogin: async (ctx: Context, next: () => Promise<any>): Promise<void> => {
     ctx.response.redirect(authorizationUrl);
   },

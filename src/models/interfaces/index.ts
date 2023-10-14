@@ -1,17 +1,17 @@
-import { Context } from "aws-sdk/clients/autoscaling";
-import { HTTPMethod } from "../enums";
+import { Context } from "koa";
+import { HTTPMethodEnum } from "../enums";
 
-export interface RouteConfig {
-  method: HTTPMethod;
+export interface RouteConfigInterface {
+  method: HTTPMethodEnum;
   path: string;
-  handler: string;
+  handler: string | Function;
   config: {
     policies: string[];
     middlewares: string[];
   };
 }
 
-export interface controllerFunction<T> {
+export interface controllerFunctionInterface<T> {
   (ctx: Context, next: () => Promise<any>): Promise<T>;
 }
 

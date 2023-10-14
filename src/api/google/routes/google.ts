@@ -1,51 +1,51 @@
 import {
-  googleControllers,
-  customApis,
-  HTTPMethod,
+  googleControllersEnum,
+  customApisEnum,
+  HTTPMethodEnum,
 } from "../../../models/enums";
-import { RouteConfig } from "../../../models/interfaces";
+import { RouteConfigInterface } from "../../../models/interfaces";
 
-const routes: RouteConfig[] = [
+const routes: RouteConfigInterface[] = [
   {
-    method: HTTPMethod.GET,
-    path: `/${customApis.google}/${googleControllers.auth}/login`,
-    handler: `${googleControllers.auth}.authLogin`,
+    method: HTTPMethodEnum.GET,
+    path: `/${customApisEnum.google}/${googleControllersEnum.auth}/login`,
+    handler: `${googleControllersEnum.auth}.authLogin`,
     config: {
       policies: [],
       middlewares: [],
     },
   },
   {
-    method: HTTPMethod.GET,
-    path: `/${customApis.google}/${googleControllers.auth}/callback`,
-    handler: `${googleControllers.auth}.authCallback`,
+    method: HTTPMethodEnum.GET,
+    path: `/${customApisEnum.google}/${googleControllersEnum.auth}/callback`,
+    handler: `${googleControllersEnum.auth}.authCallback`,
     config: {
       policies: [],
       middlewares: [],
     },
   },
   {
-    method: HTTPMethod.GET,
-    path: `/${customApis.google}/${googleControllers.auth}/revokeToken`,
-    handler: `${googleControllers.auth}.authRevokeToken`,
+    method: HTTPMethodEnum.GET,
+    path: `/${customApisEnum.google}/${googleControllersEnum.auth}/revokeToken`,
+    handler: `${googleControllersEnum.auth}.authRevokeToken`,
     config: {
       policies: [],
       middlewares: [],
     },
   },
   {
-    method: HTTPMethod.GET,
-    path: `/${customApis.google}/${googleControllers.docs}`,
-    handler: `${googleControllers.docs}.detail`,
+    method: HTTPMethodEnum.GET,
+    path: `/${customApisEnum.google}/${googleControllersEnum.docs}`,
+    handler: `${googleControllersEnum.docs}.detail`,
     config: {
       policies: [],
       middlewares: [],
     },
   },
   {
-    method: HTTPMethod.GET,
-    path: `/${customApis.google}/${googleControllers.drive}/folders`,
-    handler: `${googleControllers.drive}.folders`,
+    method: HTTPMethodEnum.GET,
+    path: `/${customApisEnum.google}/${googleControllersEnum.drive}/folders`,
+    handler: `${googleControllersEnum.drive}.folders`,
     config: {
       policies: [],
       middlewares: [],
