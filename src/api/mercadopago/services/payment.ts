@@ -1,5 +1,0 @@
-/**
- * mercadopago service
- */
-
-export default () => ({});
