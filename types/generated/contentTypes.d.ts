@@ -683,12 +683,14 @@ export interface ApiActivityActivity extends Schema.CollectionType {
     singularName: 'activity';
     pluralName: 'activities';
     displayName: 'activity';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

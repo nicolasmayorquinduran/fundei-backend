@@ -1,46 +1,26 @@
 /**
  * A set of functions called "actions" for `payments`
  */
-
-import { Context } from "koa";
-import Mercadopago from "mercadopago";
-import { Payment } from "mercadopago";
-
-const client = new Mercadopago({
-  accessToken: process.env.MERCADOPAGO_ACCESS_TOKEN,
-  options: { timeout: 0 },
-});
-const payment = new Payment(client);
-
-const body = {
-  transaction_amount: 12.0,
-  description: "<DESCRIPTION>",
-  payment_method_id: "pse",
-  payer: {
-    entity_type: "individual",
-    email: "nmayorquinduran@gmail.com",
-    identification: {
-      type: "CPF",
-      number: "95749019047",
-    },
-  },
-  additional_info: {
-    ip_address: "127.0.0.1",
-  },
-  callback_url: "http://localhost:1337/api/mercadopago/callback",
-};
+import {
+  customApisEnum,
+  mercadopagoControllersEnum,
+} from "../../../models/enums";
 
 export default {
-  pay: async (ctx: Context) => {
+  pay: async (ctx: Record<any, any>) => {
     try {
-      ctx.body = await payment.create({ body });
+      const { data } = await strapi
+        .service(
+          `api::${customApisEnum.mercadopago}.${mercadopagoControllersEnum.payments}`
+        )
+        .pay(ctx);
+      ctx.body = data.init_point;
     } catch (err) {
-      console.log({ err: err.cause });
-
+      console.log({ err: err });
       ctx.body = err;
     }
   },
-  callback: async (ctx: Context) => {
+  callback: async (ctx) => {
     try {
       ctx.body = { message: "paymentsuccesfully" };
     } catch (err) {
