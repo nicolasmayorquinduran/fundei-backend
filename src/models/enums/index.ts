@@ -8,6 +8,7 @@ export enum HTTPMethodEnum {
 export enum customApisEnum {
   google = "google",
   mercadopago = "mercadopago",
+  meta = "meta",
 }
 
 export enum googleControllersEnum {
@@ -18,4 +19,8 @@ export enum googleControllersEnum {
 
 export enum mercadopagoControllersEnum {
   payments = "payments",
+}
+
+export enum metaControllersEnum {
+  whatsapp = "whatsapp",
 }

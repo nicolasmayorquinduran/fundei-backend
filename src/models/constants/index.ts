@@ -1,6 +1,59 @@
 const { SERVER_URL } = process.env;
 
-const items = [
+interface Address {
+  zip_code: string;
+  street_name: string;
+  street_number: string;
+}
+
+interface Phone {
+  area_code: string;
+  number: string;
+}
+
+interface Payer {
+  name: string;
+  surname: string;
+  email: string;
+  phone: Phone;
+  address: Address;
+}
+
+interface Item {
+  id: string;
+  title: string;
+  description: string;
+  picture_url: string;
+  category_id: string;
+  quantity: number;
+  currency_id: string;
+  unit_price: number;
+}
+
+interface BackUrls {
+  success: string;
+  pending: string;
+  failure: string;
+}
+
+interface PaymentMethods {
+  excluded_payment_methods: { id: string }[];
+  excluded_payment_types: { id: string }[];
+  installments: number;
+  default_installments: number;
+}
+
+export interface MockPreferences {
+  items: Item[];
+  external_reference: string;
+  payer: Payer;
+  payment_methods: PaymentMethods;
+  back_urls: BackUrls;
+  notification_url: string;
+  auto_return: string;
+}
+
+const items: Item[] = [
   {
     id: "1234",
     title: "name",
@@ -13,7 +66,7 @@ const items = [
   },
 ];
 
-export const mockPreferences = {
+export const mockPreferences: MockPreferences = {
   items,
   external_reference: "referencia del negocio",
   payer: {
